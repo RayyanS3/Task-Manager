@@ -4,21 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1><%= kindOfDay %></h1>
-    <ul>
-      <li>Get ingredients</li>
-      <li>Make food</li>
-      <li>Eat food</li>
-      <%for(var i=0; i<itemList.length; i++){%>
-        <li><%= itemList[i] %></li>
-     <% } %>
-    </ul>
-    <form action="/" method="post">
-      <label for="newTask">Task: </label>
-      <input type="text" name="newTask" id="newTask" />
-      <button type="submit">Add task</button>
-    </form>
+    <div class="box" id="heading">   
+         <h1><%= kindOfDay %></h1>
+    </div>
+    <div class="box">
+        <%for(var i=0; i<itemList.length; i++){%>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= itemList[i] %></p>
+            </div>
+         <% } %>
+
+         <form action="/" method="post" class="item">
+            <input type="text" name="newTask" id="newTask" placeholder="New Item" autocomplete="off"/>
+            <button type="submit" class="btnAdd">+</button>
+          </form>
+    </div>
+
+
   </body>
 </html>
