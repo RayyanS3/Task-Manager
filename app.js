@@ -2,7 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+var items = [];
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,5 +22,11 @@ app.get("/", function (req, res) {
   };
 
   var day = today.toLocaleDateString("en-US", options);
-  res.render("list", { kindOfDay: day });
+  res.render("list", { kindOfDay: day, newListItem: items });
+});
+
+app.post("/", function (req, res) {
+  const item = req.body.newTask;
+  items.push(item);
+  res.redirect("/");
 });

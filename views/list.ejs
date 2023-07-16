@@ -7,5 +7,16 @@
   </head>
   <body>
     <h1><%= kindOfDay %></h1>
+    <ul>
+      <li>Get ingredients</li>
+      <li>Make food</li>
+      <li>Eat food</li>
+      <li><%= newListItem %></li>
+    </ul>
+    <form action="/" method="post">
+      <label for="newTask">Task: </label>
+      <input type="text" name="newTask" id="newTask" />
+      <button type="submit">Add task</button>
+    </form>
   </body>
 </html>
