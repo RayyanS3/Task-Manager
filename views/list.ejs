@@ -11,7 +11,9 @@
       <li>Get ingredients</li>
       <li>Make food</li>
       <li>Eat food</li>
-      <li><%= newListItem %></li>
+      <%for(var i=0; i<itemList.length; i++){%>
+        <li><%= itemList[i] %></li>
+     <% } %>
     </ul>
     <form action="/" method="post">
       <label for="newTask">Task: </label>

@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
   };
 
   var day = today.toLocaleDateString("en-US", options);
-  res.render("list", { kindOfDay: day, newListItem: items });
+  res.render("list", { kindOfDay: day, itemList: items });
 });
 
 app.post("/", function (req, res) {
