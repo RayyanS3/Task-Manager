@@ -2,7 +2,10 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-let items = [];
+const date = require(__dirname + "/date.js");
+
+let universityTasks = [];
+let personalTasks = [];
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,20 +18,38 @@ app.listen(3000, function () {
 });
 
 app.get("/", function (req, res) {
-  let today = new Date();
-
-  let options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  };
-
-  let day = today.toLocaleDateString("en-US", options);
-  res.render("list", { kindOfDay: day, itemList: items });
+  res.render("list", {
+    kindOfDay: "University - " + date(),
+    itemList: universityTasks,
+  });
 });
 
 app.post("/", function (req, res) {
-  const item = req.body.newTask;
-  items.push(item);
-  res.redirect("/");
+  const task = req.body.newTask;
+  const listType = req.body.button;
+
+  //   if (req.body.reset == "University") {
+  //     universityTasks = [];
+  //     res.redirect("/");
+  //   }else{
+  //     personalTasks = [];
+  //     res.redirect("/personal")
+  //   }
+
+  if (task != "") {
+    if (listType == "University") {
+      universityTasks.push(task);
+      res.redirect("/");
+    } else {
+      personalTasks.push(task);
+      res.redirect("/personal");
+    }
+  }
+});
+
+app.get("/personal", function (req, res) {
+  res.render("list", {
+    kindOfDay: "Personal - " + date(),
+    itemList: personalTasks,
+  });
 });

@@ -21,6 +21,7 @@ h1 {
 #heading {
   background-color: #0e4b1f;
   text-align: center;
+  font-size: 0.8rem;
 }
 
 .item {
@@ -57,7 +58,7 @@ form {
   margin-left: 20px;
 }
 
-.btnAdd {
+#btnAdd {
   min-height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -68,8 +69,20 @@ form {
   border-width: 0;
 }
 
-button:hover {
+#btnAdd:hover {
   background-color: #0e4b1f9d;
+}
+
+#btnReset {
+  background-color: #e4e9fd;
+  padding: 10px;
+  border: 5px solid #e4e9fd;
+  border-radius: 15px;
+}
+
+#cp {
+  font-size: 0.65rem;
+  color: #000000;
 }
 
 input[type="text"] {

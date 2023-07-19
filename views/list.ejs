@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Manager</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
+<%- include("header") -%>
   <body>
     <div class="box" id="heading">   
          <h1><%= kindOfDay %></h1>
@@ -20,10 +13,13 @@
 
          <form action="/" method="post" class="item">
             <input type="text" name="newTask" id="newTask" placeholder="New Item" autocomplete="off"/>
-            <button type="submit" class="btnAdd">+</button>
-          </form>
-    </div>
+            <button type="submit" id="btnAdd" name="button" value=<%= kindOfDay %>>+</button>
 
+    </div>
+    <button type="submit" id="btnReset" name="reset" value=<%= kindOfDay %>+"R">Reset</button>
+
+</form>
 
   </body>
-</html>
+
+  <%- include("footer") -%>
